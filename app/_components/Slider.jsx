@@ -15,7 +15,7 @@ const Slider = ({ sliderList }) => {
                 <CarouselContent>
                     {sliderList.map((slider,index)=>(
                         <CarouselItem key={index}>
-                            {/* {console.log(slider.attributes.Image.data[0].attributes.url)} */}
+                            {/* {console.log(slider.attributes.Image.data)} */}
                             
                             <CarouselItem>
                                 <Image 
