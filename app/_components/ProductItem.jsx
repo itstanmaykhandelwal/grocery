@@ -2,6 +2,17 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import React from 'react'
 
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+import ProductItemDetails from './ProductItemDetails'
+
+
 const ProductItem = ({ product }) => {
     // console.log(product.attributes.images.data[0].attributes.url)
     return (
@@ -18,11 +29,23 @@ const ProductItem = ({ product }) => {
             />
             <h2 className="font-bold text-lg">{product.attributes.name}</h2>
             <div className="flex gap-3">
-                {product.attributes.sellingPrice && 
-                <h2 className="font-bold">₹{product.attributes.sellingPrice}</h2>}
+                {product.attributes.sellingPrice &&
+                    <h2 className="font-bold">₹{product.attributes.sellingPrice}</h2>}
                 <h2 className={`font-bold ${product.attributes.sellingPrice && 'line-through text-gray-500'}`}>₹{product.attributes.mrp}</h2>
             </div>
-            <Button variant="outline" className="text-primary hover:text-white hover:bg-primary">Add to cart</Button>
+            <Dialog>
+                <DialogTrigger asChild>
+                    <Button variant="outline" className="text-primary hover:text-white hover:bg-primary">Add to cart</Button>
+                </DialogTrigger>
+                <DialogContent>
+                    <DialogHeader>
+                        <DialogDescription>
+                            <ProductItemDetails product={product} />
+                        </DialogDescription>
+                    </DialogHeader>
+                </DialogContent>
+            </Dialog>
+
         </div>
     )
 }

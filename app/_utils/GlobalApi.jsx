@@ -20,9 +20,12 @@ const getAllProducts = () => axiosClient.get('/products?populate=*').then(resp =
     return resp.data.data;
 })
 
+const getProductByCategory= (category) => axiosClient.get('/products?filter categories][name][$in]='+category+"&populate=*")
+
 export default {
     getCategory,
     getSliders,
     getCategoryList,
-    getAllProducts
+    getAllProducts,
+    getProductByCategory
 }
