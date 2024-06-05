@@ -12,6 +12,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import GlobalApi from '../_utils/GlobalApi';
+import Link from 'next/link';
 
 const Header = () => {
 
@@ -41,18 +42,20 @@ const Header = () => {
                         <DropdownMenuLabel>Browse Category</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         {categoryList.map((category,index) =>(
-                            <DropdownMenuItem key={index} className="flex gap-3 items-center cursor-pointer">
-                                <Image 
-                                    
-                                    src={category.attributes.icon.data[0].attributes.url}
-                                    unoptimized={true}
-                                    alt='icon'
-                                    width={27}
-                                    height={27}
+                            <Link href={'/product-category/'+category.attributes.name}>
+                                <DropdownMenuItem key={index} className="flex gap-3 items-center cursor-pointer">
+                                    <Image 
+                                        
+                                        src={category.attributes.icon.data[0].attributes.url}
+                                        unoptimized={true}
+                                        alt='icon'
+                                        width={27}
+                                        height={27}
 
-                                />
-                                <h2>{category?.attributes?.name}</h2>
-                            </DropdownMenuItem>
+                                    />
+                                    <h2>{category?.attributes?.name}</h2>
+                                </DropdownMenuItem>
+                            </Link>
                         ))}
                         {/* <DropdownMenuItem>Profile</DropdownMenuItem>
                         <DropdownMenuItem>Billing</DropdownMenuItem>

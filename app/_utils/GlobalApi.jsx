@@ -20,7 +20,10 @@ const getAllProducts = () => axiosClient.get('/products?populate=*').then(resp =
     return resp.data.data;
 })
 
-const getProductByCategory= (category) => axiosClient.get('/products?filter categories][name][$in]='+category+"&populate=*")
+const getProductByCategory= (category) => axiosClient.get('/products?filters[categories][name][$in]='+category+"&populate=*")
+.then(resp => {
+    return resp.data.data
+})
 
 export default {
     getCategory,
