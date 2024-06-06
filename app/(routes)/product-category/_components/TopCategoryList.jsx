@@ -10,7 +10,7 @@ const TopCategoryList = ({categoryList,selectedCategory}) => {
                 className={`flex flex-col 
                     items-center bg-green-50 gap-2 p-3 
                     rounded-lg group cursor-pointer 
-                    hover:bg-green-200
+                    hover:bg-green-600
                     w-[150px] min-w[100px]
                     ${selectedCategory===category.attributes.name&&'bg-green-600 text-white'}`}>
                     <Image src={category.attributes.icon.data[0].attributes.url}
@@ -19,7 +19,7 @@ const TopCategoryList = ({categoryList,selectedCategory}) => {
                         alt="icon"
                         className="group-hover:scale-125 transition-all ease-in-out"
                     />
-                    <h2 className={`text-green-800 group-hover:text-white${selectedCategory===category.attributes.name&&'text-white'}`}>{category.attributes.name}</h2>
+                    <h2 className={`text-green-800 group-hover:text-white ${selectedCategory===category.attributes.name&&'text-white'}`}>{category.attributes.name}</h2>
                 </Link>
             ))}
         </div>
